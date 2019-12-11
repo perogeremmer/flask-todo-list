@@ -6,7 +6,7 @@ This todo list created by M Hudya Ramadhana also known as Kiddy written in Pytho
 - Python 3.6
 - Flask
 - Flask SQL Alchemy
-- Flask Seeder
+- Flask Seederpip
 - Flask Migrate
 - Python dot env
 - Pymysql
@@ -15,16 +15,23 @@ This todo list created by M Hudya Ramadhana also known as Kiddy written in Pytho
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirement.
 
-- Create virtual environment for your python needs. If you don't understand how to make it, please read at this [tutorial](https://medium.com/@kiddy.xyz/tutorial-restful-api-dengan-flask-python-part-1-pengenalan-instalasi-4836478ce651?source=---------6------------------).
+- Create virtual environment for your python needs. If you don't understand how to make it, please
+ read through this [tutorial](https://medium.com/@kiddy.xyz/tutorial-restful-api-dengan-flask-python-part-1-pengenalan-instalasi-4836478ce651?source=---------6------------------).
+- Activate your virtual env.
+- Go to this project directory.
 - Install the library
 ```bash
-pip install flask python-dotenv flask-sqlalchemy flask-migrate pymysql Flask-seeder
+pip install -r requirements.txt
 ```
 - Copy .flaskenv.example to .flaskenv
 - Setting the database and other things on env.
+- Run the project
+```bash
+flask run
+```
 
 
-## Author Message
+## Author Notes
 Don't forget to visit my blog [here](https://medium.com/@kiddy.xyz), you will find another great tutorials!
 
 
