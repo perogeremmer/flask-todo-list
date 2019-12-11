@@ -1,0 +1,6 @@
+FLASK_APP=main.py
+
+DB_HOST=localhost
+DB_DATABASE=todo
+DB_USERNAME=homestead
+DB_PASSWORD=secret

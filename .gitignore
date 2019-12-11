@@ -1,0 +1,4 @@
+.flaskenv
+virtualenv
+venv
+virtualenvironment
