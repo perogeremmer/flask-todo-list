@@ -1,8 +1,11 @@
 from app.model.user import Users
 from flask import request
 from app import response, db
+from flask_jwt_extended import *
+import datetime
 
 
+@jwt_required
 def index():
     try:
         users = Users.query.all()
@@ -29,6 +32,7 @@ def store():
         print(e)
 
 
+@jwt_required
 def update(id):
     try:
         name = request.json['name']
@@ -48,6 +52,7 @@ def update(id):
         print(e)
 
 
+@jwt_required
 def show(id):
     try:
         users = Users.query.filter_by(id=id).first()
@@ -60,6 +65,7 @@ def show(id):
         print(e)
 
 
+@jwt_required
 def delete(id):
     try:
         user = Users.query.filter_by(id=id).first()
@@ -86,8 +92,31 @@ def login():
         if not user.checkPassword(password):
             return response.badRequest([], 'Your credentials is invalid')
 
-        data = singleTransform(user)
-        return response.ok(data, "")
+        data = singleTransform(user, withTodo=False)
+        expires = datetime.timedelta(days=1)
+        expires_refresh = datetime.timedelta(days=3)
+        access_token = create_access_token(data, fresh=True, expires_delta=expires)
+        refresh_token = create_refresh_token(data, expires_delta=expires_refresh)
+
+        return response.ok({
+            "data": data,
+            "token_access": access_token,
+            "token_refresh": refresh_token,
+        }, "")
+    except Exception as e:
+        print(e)
+
+
+@jwt_refresh_token_required
+def refresh():
+    try:
+        user = get_jwt_identity()
+        new_token = create_access_token(identity=user, fresh=False)
+
+        return response.ok({
+            "token_access": new_token
+        }, "")
+
     except Exception as e:
         print(e)
 

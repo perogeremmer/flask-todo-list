@@ -42,3 +42,8 @@ def todoDetail(id):
 @app.route('/login', methods=['POST'])
 def login():
     return UserController.login()
+
+
+@app.route('/refresh', methods=['POST'])
+def refresh():
+    return UserController.refresh()

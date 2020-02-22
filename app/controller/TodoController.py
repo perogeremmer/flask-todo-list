@@ -2,8 +2,10 @@ from app.model.todo import Todos as Todo
 from flask import request, jsonify
 from app import response, db
 from app.controller import UserController
+from flask_jwt_extended import *
 
 
+@jwt_required
 def index():
     try:
         id = request.args.get('user_id')
@@ -14,6 +16,7 @@ def index():
         print(e)
 
 
+@jwt_required
 def store():
     try:
         todo = request.json['todo']
@@ -30,6 +33,7 @@ def store():
         print(e)
 
 
+@jwt_required
 def update(id):
     try:
         todo = request.json['todo']
@@ -47,6 +51,7 @@ def update(id):
         print(e)
 
 
+@jwt_required
 def show(id):
     try:
         todo = Todo.query.filter_by(id=id).first()
@@ -59,6 +64,7 @@ def show(id):
         print(e)
 
 
+@jwt_required
 def delete(id):
     try:
         todo = Todo.query.filter_by(id=id).first()
