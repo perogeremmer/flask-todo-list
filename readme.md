@@ -10,6 +10,7 @@ This todo list created by M Hudya Ramadhana also known as Kiddy written in Pytho
 - Flask Migrate
 - Python dot env
 - Pymysql
+- Flask JWT Extended
 
 ## Installation
 

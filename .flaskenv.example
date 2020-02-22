@@ -1,4 +1,7 @@
 FLASK_APP=main.py
+FLASK_ENV=development
+
+JWT_SECRET=xxxxxx
 
 DB_HOST=localhost
 DB_DATABASE=todo
