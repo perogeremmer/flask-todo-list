@@ -7,3 +7,8 @@ DB_HOST=localhost
 DB_DATABASE=todo
 DB_USERNAME=homestead
 DB_PASSWORD=secret
+
+MAIL_SERVER=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=xxx@gmail.com
+MAIL_PASSWORD=xxx

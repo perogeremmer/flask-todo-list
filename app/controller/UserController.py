@@ -3,6 +3,9 @@ from flask import request
 from app import response, db
 from flask_jwt_extended import *
 import datetime
+from app import mail
+from flask_mail import Message
+from flask import render_template
 
 
 @jwt_required
@@ -25,6 +28,14 @@ def store():
         users.setPassword(password)
         db.session.add(users)
         db.session.commit()
+
+        msg = Message("Hello, {} welcome to Belajar Flask Python".format(name),
+                      sender="kiddy@mail.com")
+        msg.add_recipient(email)
+        # msg.body = "testing"
+        msg.html = render_template('mail.html', app_name="Learn Flask with Kiddy", app_contact="kiddy@mail.com",
+                                   name=name, email=email)
+        mail.send(msg)
 
         return response.ok('', 'Successfully create data!')
 
