@@ -10,7 +10,7 @@ Flask-Seeder==0.1a3
 Flask-SQLAlchemy==2.4.1
 freeze==1.0.10
 itsdangerous==1.1.0
-Jinja2==2.10.3
+Jinja2==2.11.3
 Mako==1.1.0
 MarkupSafe==1.1.1
 pkg-resources==0.0.0
